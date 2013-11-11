@@ -3,7 +3,6 @@
   "name": "niconico_mylist_maker",
   "version": "0.0.1",
 
-  "default_locale": "ja",
   "description": "",
   "icons": {},
 
@@ -15,5 +14,14 @@
   "author": "tsuwacth",
   "background": {
     "scripts": ["background.js"]
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["jquery.js", "content_scripts.js"]
+    }
+  ],
+  "permissions": [
+    "contextMenus"
+  ]
 }
