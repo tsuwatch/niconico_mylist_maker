@@ -1,10 +1,15 @@
-function loadVideos() {
+var loadVideos = function() {
   for (var i=0; i<localStorage.length; i++) {
     $('ul').append('<li>' + localStorage[i] + '</li>');
   }
 }
 
-var makeMylist = function() {
+var discard = function() {
+  localStorage.clear();
+  $('ul').children().remove();
+}
+
+var make = function() {
   var token = '';
   var group_id = '';
   var movie_list = new Array();
@@ -47,7 +52,10 @@ var makeMylist = function() {
 
 $(document).ready(function() {
   loadVideos();
-  $('#add').click(function() {
-    makeMylist();
+  $('#make').click(function() {
+    make();
+  });
+  $('#discard').click(function() {
+    discard();
   });
 });
