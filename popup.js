@@ -42,6 +42,8 @@ var make = function() {
         .done(function(data, status, xhr) {
           if (movie_list.length) {
             add();
+          } else {
+            window.open("http://www.nicovideo.jp/playlist/mylist/" + group_id);
           }
         });
       }
