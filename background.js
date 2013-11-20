@@ -7,13 +7,10 @@ var parentId = chrome.contextMenus.create({
 
 function addNicovideo() {
   return function(info, tab) {
-    if (info.linkUrl.match(new RegExp("https?:\/\/.*(?:nicovideo\.jp|nico\.ms).*\/sm([0-9]+)"))) {
+    if (info.linkUrl.match(new RegExp("https?:\/\/.*(?:nicovideo\.jp|nico\.ms).*\/(sm[0-9]+)"))) {
       videoId = RegExp.$1;
       var key = localStorage.length;
       localStorage.setItem(key, videoId);
-      for (var i=0; i<localStorage.length; i++) {
-        alert(localStorage[i]);
-      }
     } else {
       alert('ニコニコ動画の動画ではないか，未対応のURLです');
     }
